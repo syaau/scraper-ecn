@@ -4,5 +4,8 @@
 Install dependencies
 > `$ npm install`
 
-Start the program provide command line arguments after --
-> `$ npm start -- `
+Install command line utility
+> `$ npm link`
+
+Run the program
+> `$ scrape-ecn`

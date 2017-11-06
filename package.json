@@ -4,7 +4,7 @@
   "description": "",
   "main": "build/index.js",
   "bin": {
-    "scrape-ecn": "node build/index.js"
+    "scrape-ecn": "build/index.js"
   },
   "files": [
     "build"
