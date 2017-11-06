@@ -3,3 +3,5 @@ images.bak/
 node_modules/
 .DS_Store
 voters/
+build/
+*.sqlite.db
