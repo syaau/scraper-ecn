@@ -22,7 +22,7 @@ const dataRowMap = {
 };
 
 export default async function getVoterInfo(voterId) {
-  const data = await request.post(getUrl('personal_details.php')).form({
+  const data = await request.post(getUrl('personal_details.php'), { gzip: true }).form({
     strFormNo: voterId, // The form number of the voter
     strResult: `'OR form_no='${voterId}`, // SQL injection (value supposed to be DOB or citizenship num)
     rbOption: '1',      // '1' to check for dob '2' to check by citizenship num
