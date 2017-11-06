@@ -1,28 +1,13 @@
-import request from 'request-promise-native';
-import cheerio from 'cheerio';
-import { getUrl } from './config';
+import getOptions from './_getOptions';
 
 export default async function getLocalBodies(districtId) {
-  const data = await request.post(getUrl('index_process.php')).form({
-    district: districtId,
+  const options = await getOptions({
     list_type: 'vdc',
+    district: districtId,
   });
 
-  const $ = cheerio.load(JSON.parse(data).result);
-  const vdcs = [];
-  $('option').each(function() {
-    const elem = $(this);
-    const id = elem.attr('value');
-    if (!id) {
-      return;
-    }
-
-    vdcs.push({
-      id,
-      name: elem.text(),
-      districtId,
-    });
-  });
-
-  return vdcs;
+  return options.map(o => ({
+    ...o,
+    districtId,
+  }));
 }
