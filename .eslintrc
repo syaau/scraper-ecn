@@ -1,0 +1,4 @@
+{
+  "config": "airbnb",
+  "parser": "babel-eslint"
+}
