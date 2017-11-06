@@ -1,10 +1,10 @@
 {
   "name": "scraper-ecn",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "",
   "main": "build/index.js",
   "bin": {
-    "scrape-ecn": "build/index.js"
+    "scrape-ecn": "build/cmd.js"
   },
   "files": [
     "build"
