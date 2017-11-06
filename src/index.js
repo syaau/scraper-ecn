@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import program from 'commander';
 import getDistricts from './scraper/getDistricts';
 import getLocalBodies from './scraper/getLocalBodies';
@@ -17,37 +19,39 @@ program
 
 async function main() {
   if (!program.district) {
-    console.log('Provide a district id. The following are available value');
     const districts = await getDistricts();
     districts.forEach((district) => {
       console.log(district.id, district.name);
     });
 
+    program.outputHelp();
+    console.log('Provide a district id with -d. Check available districts above');
+
     return;
   }
 
   if (!program.localBody) {
-    console.log('Provide a local body id. the following are available values:');
     const localBodies = await getLocalBodies(program.district);
     localBodies.forEach((body) => {
       console.log(body.id, body.name);
     });
+    console.log('Provide a local body id with -l.');
     return;
   }
 
   if (!program.ward) {
-    console.log('Provide a ward number. The following are available values: ');
     const wards = await getWards(program.localBody);
     console.log(wards.map(w => w.number).join(', '));
+    console.log('Provide a ward number with -w.');
     return;
   }
 
   if (!program.center) {
-    console.log('Provide voting center id. The following are available values: ');
     const centers = await getCenters(program.localBody, program.ward);
     centers.forEach((center) => {
       console.log(center.id, center.name);
     });
+    console.log('Provide voting center id wth -c.');
     return;
   }
 
