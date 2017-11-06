@@ -12,15 +12,16 @@ export default async function getVoterList(districtId, localBodyId, ward, center
   });
 
   const $ = cheerio.load(data);
-  const voters = $('table#tbl_data tbody tr').map(function() {
+  const voters = [];
+  $('table#tbl_data tbody tr').map(function() {
     const cells = $(this).find('td');
-    return {
-      voterNo: cells.eq(1).text(),
+    voters.push({
+      id: cells.eq(1).text(),
       name: cells.eq(2).text(),
       sex: cells.eq(3).text(),
       father: cells.eq(4).text(),
       mother: cells.eq(5).text(),
-    };
+    });
   });
 
   return voters;
