@@ -1,8 +1,8 @@
 {
   "name": "scraper-ecn",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "build/index.js",
   "bin": {
     "scrape-ecn": "node build/index.js"
   },
@@ -22,7 +22,8 @@
     "babel-eslint": "^7.2.2",
     "babel-jest": "^21.2.0",
     "babel-preset-es2017": "^6.24.1",
-    "babel-preset-react-native": "^1.9.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-import-export": "^1.0.2",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
@@ -32,8 +33,6 @@
     "rimraf": "^2.6.2"
   },
   "dependencies": {
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-import-export": "^1.0.2",
     "cheerio": "^0.22.0",
     "commander": "^2.11.0",
     "glob": "^7.1.2",
